@@ -1,4 +1,14 @@
 .blue{
     color: blue;
-    background-color: red;
+}
+
+.navbar {
+    display: flex;
+    flex-direction:row;
+    width: 100vw;
+    justify-content: flex-end;
+}
+
+.navbar li {
+    margin: 1rem;
 }
