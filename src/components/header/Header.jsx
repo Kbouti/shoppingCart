@@ -1,22 +1,23 @@
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
       <header>
         <h1 className={styles.blue}>Shopping cart app header</h1>
-        <nav >
-            <ul className = {styles.navbar}>
-                <li>
-                    <a href="home">Home</a>
-                </li>
-                <li>
-                    <a href="products">Products</a>
-                </li>
-                <li>
-                    <a href="shoppingCart">Shopping Cart</a>
-                </li>
-            </ul>
+        <nav>
+          <ul className={styles.navbar}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+            <li>
+              <Link to="/shoppingCart">Shopping Cart</Link>
+            </li>
+          </ul>
         </nav>
       </header>
     </>
