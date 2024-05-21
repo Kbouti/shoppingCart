@@ -9,6 +9,12 @@ import Cart from "./components/cart/Cart.jsx";
 
 import "./index.css";
 
+
+
+// Ok is this our issue? Should products and shopping cart be children of App not siblings?
+// First of all, we never finished the router lesson. We can follow along with the router lesson to make this better. 
+
+
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
   {
