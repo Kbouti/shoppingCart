@@ -8,16 +8,20 @@ function App() {
   const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState();
 
+  const [testProp, setTestProp] = useState("shitsnacks");
+
 
 
 // We're setting our state variables here but how do we expect to access them in shopping cart and products pages?
 
 
+// Ok so do propducts and shopping cart have to be children of home??
+
 
 
   return (
     <>
-      <Home />
+      <Home testProp={testProp} />
     </>
   );
 }

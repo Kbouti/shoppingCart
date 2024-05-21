@@ -2,12 +2,14 @@ import Header from "../header/Header";
 import styles from "./Home.module.css";
 import lindsayAndAlbie from "../../images/lindsayAndAlbie.jpeg";
 
-const Home = () => {
+const Home = ({testProp}) => {
   return (
     <>
       <Header />
       <section>
         <h3>You're in the home section.</h3>
+        
+        <p>{testProp}</p>
 
         <div className={styles.imgContainer}>
           <img
