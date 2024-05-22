@@ -17,6 +17,22 @@ function App() {
   const [testProp, setTestProp] = useState("shitsnacks");
 
 
+
+const products = []
+
+useEffect(() => {
+  async function fetchData() {
+    const result = await fetch('https://fakestoreapi.com/products/1')
+    .then(res=>res.json())
+    .then(json=>console.log(json)
+  )
+  }
+fetchData()
+}, []
+
+
+)
+
   // Ok, so we establish all our state variables here, then call components conditionally based on routes? Or something like that
 
   return (
