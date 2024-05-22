@@ -1,11 +1,15 @@
-import Header from "../header/Header";
 import styles from "./Home.module.css";
 import lindsayAndAlbie from "../../images/lindsayAndAlbie.jpeg";
+
+
+
+// This isn't rendering because we're not telling it to yet in App. 
+// We need to set it as the default component when neither of the children components are selected. 
+
 
 const Home = ({testProp}) => {
   return (
     <>
-      <Header />
       <section>
         <h3>You're in the home section.</h3>
         
