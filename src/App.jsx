@@ -29,7 +29,7 @@ function App() {
           </NavLink>
         </nav>
       </header>
-
+<hr/>
       <Outlet />
       {/* <Home testProp={testProp} /> */}
     </>
