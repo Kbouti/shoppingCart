@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 
 import Home from "./components/home/Home.jsx";
+import Products from "./components/products/Products.jsx";
+import Cart from "./components/cart/Cart.jsx";
 
 import { NavLink, Outlet } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function App() {
   const [loading, setloading] = useState(true);
@@ -12,10 +15,9 @@ function App() {
 
   const [testProp, setTestProp] = useState("shitsnacks");
 
+  const { name } = useParams();
 
-// Ok, so we establish all our state variables here, then call components conditionally based on routes? Or something like that
-
-
+  // Ok, so we establish all our state variables here, then call components conditionally based on routes? Or something like that
 
   return (
     <>
@@ -29,8 +31,17 @@ function App() {
           </NavLink>
         </nav>
       </header>
-<hr/>
-      <Outlet />
+      <hr />
+
+      {name === "products" ? (
+        <Products />
+      ) : name === "shoppingCart" ? (
+        <Cart />
+      ) : (
+        <Home testProp={testProp} />
+      )}
+
+      {/* <Outlet /> */}
       {/* <Home testProp={testProp} /> */}
     </>
   );
