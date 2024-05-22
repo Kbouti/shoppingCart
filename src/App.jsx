@@ -13,27 +13,30 @@ function App() {
   const [loading, setloading] = useState(true);
   const [error, setError] = useState();
   const [dataReceived, setdataReceived] = useState(false);
-  const [apiData, setApiData] = useState();
+  const [apiData, setApiData] = useState([]);
   const [testProp, setTestProp] = useState("shitsnacks");
 
 
 
-const products = []
+// Ok, the following code is fetching one product from the API. 
+// Do we need to figure out promiseAll to get a whole bunch? 
 
-useEffect(() => {
-  async function fetchData() {
-    const result = await fetch('https://fakestoreapi.com/products/1')
-    .then(res=>res.json())
-    .then(json=>console.log(json)
-  )
-  }
-fetchData()
-}, []
+  const products = [];
+  useEffect(() => {
+    async function fetchData() {
+      const result = await fetch(`https://fakestoreapi.com/products/1`);
+      result.json().then((json) => {
+        console.log(json);
+        products.push(json);
+      });
+    }
+    fetchData();
+  }, []);
 
+  console.log(`products: ${products}`);
 
-)
+// setApiData(products);
 
-  // Ok, so we establish all our state variables here, then call components conditionally based on routes? Or something like that
 
   return (
     <>
@@ -50,7 +53,7 @@ fetchData()
       <hr />
 
       {name === "products" ? (
-        <Products />
+        <Products apiData={products} />
       ) : name === "shoppingCart" ? (
         <Cart />
       ) : (

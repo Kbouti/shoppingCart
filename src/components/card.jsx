@@ -3,7 +3,7 @@ const Card = ({ product }) => {
 
   return (
     <div className="productCard">
-      <h3>{product.name}</h3>
+      <h3>{product.title}</h3>
       <h2>{product.price}</h2>
       <img></img>
       <form>
