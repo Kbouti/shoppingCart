@@ -4,6 +4,10 @@ import Card from "../card";
 const Products = ({ apiData }) => {
   // This will likely take a prop that contains data fetched from our api
 
+
+  console.log(`apiData.length: ${apiData.length}`);
+
+
   return (
     <>
       <section>

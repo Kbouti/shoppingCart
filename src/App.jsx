@@ -4,7 +4,7 @@ import Home from "./components/home/Home.jsx";
 import Products from "./components/products/Products.jsx";
 import Cart from "./components/cart/Cart.jsx";
 
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function App() {
@@ -21,19 +21,26 @@ function App() {
 // Ok, the following code is fetching one product from the API. 
 // Do we need to figure out promiseAll to get a whole bunch? 
 
+// Read up on fetching data from API's in react. That's our next hurdle
+// Also our use of useEffect.....
+
+
+
   const products = [];
+
   useEffect(() => {
     async function fetchData() {
       const result = await fetch(`https://fakestoreapi.com/products/1`);
       result.json().then((json) => {
         console.log(json);
         products.push(json);
-      });
+      }).catch((error) => console.error(error));
+      // setApiData(products)
     }
-    fetchData();
+    fetchData(); 
   }, []);
 
-  console.log(`products: ${products}`);
+  // console.log(`products: ${products}`);
 
 // setApiData(products);
 
