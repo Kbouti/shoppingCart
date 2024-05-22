@@ -2,7 +2,7 @@ const Cart = () => {
   return (
     <>
       <section>
-        <h3>Cart section</h3>
+        <h3>Shopping Cart</h3>
       </section>
     </>
   );

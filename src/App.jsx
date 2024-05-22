@@ -8,14 +8,14 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 function App() {
+  const { name } = useParams();
+
   const [loading, setloading] = useState(true);
   const [error, setError] = useState();
   const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState();
-
   const [testProp, setTestProp] = useState("shitsnacks");
 
-  const { name } = useParams();
 
   // Ok, so we establish all our state variables here, then call components conditionally based on routes? Or something like that
 
@@ -40,9 +40,6 @@ function App() {
       ) : (
         <Home testProp={testProp} />
       )}
-
-      {/* <Outlet /> */}
-      {/* <Home testProp={testProp} /> */}
     </>
   );
 }
