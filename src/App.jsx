@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 
 import Home from "./components/home/Home.jsx";
-function App() {
 
+import { NavLink, Outlet } from "react-router-dom";
+
+function App() {
   const [loading, setloading] = useState(true);
   const [error, setError] = useState();
   const [dataReceived, setdataReceived] = useState(false);
@@ -11,17 +13,25 @@ function App() {
   const [testProp, setTestProp] = useState("shitsnacks");
 
 
-
-// We're setting our state variables here but how do we expect to access them in shopping cart and products pages?
-
-
-// Ok so do propducts and shopping cart have to be children of home??
+// Ok, so we establish all our state variables here, then call components conditionally based on routes? Or something like that
 
 
 
   return (
     <>
-      <Home testProp={testProp} />
+      <header>
+        <h1>KevDawg's webShop</h1>
+        <nav>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/products">Products</NavLink>
+          <NavLink to="/shoppingCart">
+            <span className="material-symbols-outlined">shopping_cart</span>
+          </NavLink>
+        </nav>
+      </header>
+
+      <Outlet />
+      {/* <Home testProp={testProp} /> */}
     </>
   );
 }
