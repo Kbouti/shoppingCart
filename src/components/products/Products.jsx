@@ -1,4 +1,4 @@
-import Card from "../card";
+import Card from "../productCard/Card";
 // We'll use data from a different folder to make individual card components for each product
 
 const Products = ({ apiData }) => {

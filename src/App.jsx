@@ -29,6 +29,7 @@ function App() {
       fetch(url)
         .then((response) => response.json())
         .then((response) => {
+          console.log(response)
           // console.log(`response ${i}: ${response}`);
           newArray.push(response);
         })

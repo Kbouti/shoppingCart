@@ -1,8 +1,11 @@
+import styles from "./Card.module.css";
+
+
 const Card = ({ product }) => {
   // These are the individual product cards
 
   return (
-    <div className="productCard">
+    <div className={styles.productCard}>
       <h3>{product.title}</h3>
       <h2>{product.price}</h2>
       <img></img>
