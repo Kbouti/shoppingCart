@@ -14,7 +14,7 @@ const Card = ({ product }) => {
       <h2 className={styles.price}>${product.price}</h2>
       <img></img>
       <form>
-        <input type="number" value="1"></input>
+        <input type="number" defaultValue="1"></input>
         <button type="submit">Add to cart</button>
       </form>
     </div>

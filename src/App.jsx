@@ -31,12 +31,14 @@ function App() {
       fetch(url)
         .then((response) => response.json())
         .then((response) => {
-          console.log(response);
-          // console.log(`response ${i}: ${response}`);
+          // console.log(response);
           newArray.push(response);
         })
         .catch((error) => console.error(error));
     }
+    console.log(`loop complete. Length: ${newArray.length}`)
+// The problem here is we're not doing promiseAll.then().....
+
     setApiData(newArray);
   }, []);
 
