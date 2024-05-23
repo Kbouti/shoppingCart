@@ -11,39 +11,37 @@ function App() {
   const { name } = useParams();
 
   const [loading, setloading] = useState(true);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
   const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState([]);
   const [testProp, setTestProp] = useState("shitsnacks");
 
+  // Ok, the following code is fetching one product from the API.
+  // Do we need to figure out promiseAll to get a whole bunch?
+
+// We are actually successfully using useEffect I believe. We will need to get more products from the API, but otherwise we're doing great! 
+// We'll also need to set loading to false once we get all our data
 
 
-// Ok, the following code is fetching one product from the API. 
-// Do we need to figure out promiseAll to get a whole bunch? 
-
-// Read up on fetching data from API's in react. That's our next hurdle
-// Also our use of useEffect.....
-
-
-
-  const products = [];
 
   useEffect(() => {
-    async function fetchData() {
-      const result = await fetch(`https://fakestoreapi.com/products/1`);
-      result.json().then((json) => {
-        console.log(json);
-        products.push(json);
-      }).catch((error) => console.error(error));
-      // setApiData(products)
-    }
-    fetchData(); 
+    fetch("https://fakestoreapi.com/products/1")
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+
+        let product = [];
+        product.push(response);
+        const newArray = apiData.concat(product);
+        setApiData(newArray);
+      })
+      .catch((error) => console.error(error));
   }, []);
 
+  if (error) return <p> A friggen network error was encountered</p>;
   // console.log(`products: ${products}`);
 
-// setApiData(products);
-
+  // setApiData(products);
 
   return (
     <>
@@ -60,7 +58,7 @@ function App() {
       <hr />
 
       {name === "products" ? (
-        <Products apiData={products} />
+        <Products apiData={apiData} />
       ) : name === "shoppingCart" ? (
         <Cart />
       ) : (
