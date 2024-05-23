@@ -7,6 +7,9 @@ import Cart from "./components/cart/Cart.jsx";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
+
+// import styles from "./index.css";
+
 function App() {
   const { name } = useParams();
 
@@ -29,51 +32,41 @@ function App() {
       fetch(url)
         .then((response) => response.json())
         .then((response) => {
-          console.log(response)
+          console.log(response);
           // console.log(`response ${i}: ${response}`);
           newArray.push(response);
         })
         .catch((error) => console.error(error));
     }
     setApiData(newArray);
-
-
-    // The below code console.log'd the result nicely, but now we're getting object Object
-    // fetch("https://fakestoreapi.com/products/1")
-    //   .then((response) => response.json())
-    //   .then((response) => {
-    //     console.log(response);
-    //     let product = [];
-    //     product.push(response);
-    //     const newArray = apiData.concat(product);
-    //     setApiData(newArray);
-    //   })
-    //   .catch((error) => console.error(error));
   }, []);
 
   if (error) return <p> A friggen network error was encountered</p>;
 
   return (
     <>
-      <header>
-        <h1>KevDawg's webShop</h1>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/products">Products</NavLink>
-          <NavLink to="/shoppingCart">
-            <span className="material-symbols-outlined">shopping_cart</span>
-          </NavLink>
-        </nav>
-      </header>
-      <hr />
+      <div className="app">
+        <header>
+          <h1>KevDawg's webShop</h1>
+          <nav>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/products">Products</NavLink>
+            <NavLink to="/shoppingCart">
+              <span className="material-symbols-outlined">shopping_cart</span>
+            </NavLink>
+          </nav>
+        </header>
+        <hr />
+        {name === "products" ? (
+          //  we'll have to do some kind of check here to see if we have data or nor. Currently if we refresh the products page it does not fetch data from api
 
-      {name === "products" ? (
-        <Products apiData={apiData} />
-      ) : name === "shoppingCart" ? (
-        <Cart />
-      ) : (
-        <Home testProp={testProp} />
-      )}
+          <Products apiData={apiData} />
+        ) : name === "shoppingCart" ? (
+          <Cart />
+        ) : (
+          <Home testProp={testProp} />
+        )}
+      </div>
     </>
   );
 }

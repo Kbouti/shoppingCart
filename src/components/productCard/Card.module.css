@@ -1,4 +1,17 @@
 .productCard{
     display: flex;
     border: 2px solid green;
+    max-width:20rem;
+    background-color: white;
+}
+
+.productCard img {
+    height: 6rem;
+    max-width: 4rem;
+    /* Images are surely distorted now, but this is helpful for now to help figure out layout */
+}
+
+
+.productCard input {
+    width: 3rem;
 }

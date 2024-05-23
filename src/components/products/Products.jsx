@@ -1,4 +1,5 @@
 import Card from "../productCard/Card";
+import styles from "./Products.module.css"
 // We'll use data from a different folder to make individual card components for each product
 
 const Products = ({ apiData }) => {
@@ -10,12 +11,13 @@ const Products = ({ apiData }) => {
 
   return (
     <>
-      <section>
+      <section className={styles.products}>
         <h3>Products section</h3>
-
+<div className={styles.cardContainer}>
         {apiData.map((product) => {
           return <Card key={product.title} product={product} />;
         })}
+        </div>
       </section>
     </>
   );

@@ -1,0 +1,10 @@
+.cardContainer {
+    display: grid;
+    border: 2px solid hotpink;
+    gap: 20px;
+    width: 100vw;
+}
+
+.products {
+    background-color: rgb(188, 188, 188);
+}
