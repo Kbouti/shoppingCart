@@ -5,6 +5,7 @@ import Products from "./components/products/Products.jsx";
 import Cart from "./components/cart/Cart.jsx";
 
 import Loading from "./components/loading/Loading.jsx";
+import Error from "./components/Error.jsx";
 
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -20,9 +21,11 @@ function App() {
   const [apiData, setApiData] = useState([]);
 
 
-// We need to use PromiseAll so that we can set state once all of our requests have finished fetching. 
-// Then we'll need to set loading to false and data received to true. 
-// dataReceived may actually be redundant. We may only need loading and error
+  // ***********************************************************************************************************************
+  // We need to use PromiseAll so that we can set state once all of our requests have finished fetching.
+  // Then we'll need to set loading to false and data received to true.
+  // dataReceived may actually be redundant. We may only need loading and error
+  // ***********************************************************************************************************************
 
   useEffect(() => {
     const newArray = [];
@@ -34,13 +37,18 @@ function App() {
           // console.log(response);
           newArray.push(response);
         })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error(error);
+          setError(error);
+        });
     }
     console.log(`loop complete. Length: ${newArray.length}`);
     setApiData(newArray);
   }, []);
 
-  if (error) return <p> A friggen network error was encountered</p>;
+  if (error) {
+    return <Error />;
+  }
 
   // if (loading) {
   //   return <Loading />;
