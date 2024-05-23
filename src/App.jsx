@@ -4,9 +4,10 @@ import Home from "./components/home/Home.jsx";
 import Products from "./components/products/Products.jsx";
 import Cart from "./components/cart/Cart.jsx";
 
+import Loading from "./components/loading/Loading.jsx";
+
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
-
 
 // import styles from "./index.css";
 
@@ -18,11 +19,10 @@ function App() {
   const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState([]);
 
-  // Ok, the following code is fetching one product from the API.
-  // Do we need to figure out promiseAll to get a whole bunch?
 
-  // We are actually successfully using useEffect I believe. We will need to get more products from the API, but otherwise we're doing great!
-  // We'll also need to set loading to false once we get all our data
+// We need to use PromiseAll so that we can set state once all of our requests have finished fetching. 
+// Then we'll need to set loading to false and data received to true. 
+// dataReceived may actually be redundant. We may only need loading and error
 
   useEffect(() => {
     const newArray = [];
@@ -36,13 +36,15 @@ function App() {
         })
         .catch((error) => console.error(error));
     }
-    console.log(`loop complete. Length: ${newArray.length}`)
-// The problem here is we're not doing promiseAll.then().....
-
+    console.log(`loop complete. Length: ${newArray.length}`);
     setApiData(newArray);
   }, []);
 
   if (error) return <p> A friggen network error was encountered</p>;
+
+  // if (loading) {
+  //   return <Loading />;
+  // }
 
   return (
     <>
@@ -59,8 +61,6 @@ function App() {
         </header>
         <hr />
         {name === "products" ? (
-          //  we'll have to do some kind of check here to see if we have data or nor. Currently if we refresh the products page it does not fetch data from api
-
           <Products apiData={apiData} />
         ) : name === "shoppingCart" ? (
           <Cart />
