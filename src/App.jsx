@@ -19,29 +19,38 @@ function App() {
   // Ok, the following code is fetching one product from the API.
   // Do we need to figure out promiseAll to get a whole bunch?
 
-// We are actually successfully using useEffect I believe. We will need to get more products from the API, but otherwise we're doing great! 
-// We'll also need to set loading to false once we get all our data
-
-
+  // We are actually successfully using useEffect I believe. We will need to get more products from the API, but otherwise we're doing great!
+  // We'll also need to set loading to false once we get all our data
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/1")
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
+    const newArray = [];
+    for (let i = 1; i < 21; i++) {
+      const url = "https://fakestoreapi.com/products/" + i;
+      fetch(url)
+        .then((response) => response.json())
+        .then((response) => {
+          // console.log(`response ${i}: ${response}`);
+          newArray.push(response);
+        })
+        .catch((error) => console.error(error));
+    }
+    setApiData(newArray);
 
-        let product = [];
-        product.push(response);
-        const newArray = apiData.concat(product);
-        setApiData(newArray);
-      })
-      .catch((error) => console.error(error));
+
+    // The below code console.log'd the result nicely, but now we're getting object Object
+    // fetch("https://fakestoreapi.com/products/1")
+    //   .then((response) => response.json())
+    //   .then((response) => {
+    //     console.log(response);
+    //     let product = [];
+    //     product.push(response);
+    //     const newArray = apiData.concat(product);
+    //     setApiData(newArray);
+    //   })
+    //   .catch((error) => console.error(error));
   }, []);
 
   if (error) return <p> A friggen network error was encountered</p>;
-  // console.log(`products: ${products}`);
-
-  // setApiData(products);
 
   return (
     <>
