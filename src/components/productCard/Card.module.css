@@ -15,7 +15,7 @@
   max-width: 4rem;
   grid-area: img;
   border-radius: 10px;
-
+    margin: auto;
   /* Images are surely distorted now, but this is helpful for now to help figure out layout */
 }
 
@@ -29,8 +29,22 @@
 
 .price {
   grid-area: price;
+  margin: auto;
+  font-size: 2.5rem;
+}
+
+.productCard form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
 }
 
 .productCard input {
   width: 3rem;
+
+}
+
+.productCard button {
+
 }
