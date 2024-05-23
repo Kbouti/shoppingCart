@@ -17,7 +17,6 @@ function App() {
   const [error, setError] = useState(null);
   const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState([]);
-  const [testProp, setTestProp] = useState("shitsnacks");
 
   // Ok, the following code is fetching one product from the API.
   // Do we need to figure out promiseAll to get a whole bunch?
@@ -64,7 +63,7 @@ function App() {
         ) : name === "shoppingCart" ? (
           <Cart />
         ) : (
-          <Home testProp={testProp} />
+          <Home />
         )}
       </div>
     </>

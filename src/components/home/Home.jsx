@@ -5,13 +5,12 @@ import lindsayAndAlbie from "../../images/lindsayAndAlbie.jpeg";
 
 
 
-const Home = ({testProp}) => {
+const Home = () => {
   return (
     <>
       <section>
         <h3>You're in the home section.</h3>
         
-        <p>{testProp}</p>
 
         <div className={styles.imgContainer}>
           <img
