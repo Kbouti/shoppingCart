@@ -11,7 +11,7 @@ const Card = ({ product }) => {
     <div className={styles.productCard}>
       <img src={product.image}></img>
       <h3 className={styles.title}>{product.title}</h3>
-      <h2 className={styles.price}>{product.price}</h2>
+      <h2 className={styles.price}>${product.price}</h2>
       <img></img>
       <form>
         <input type="number" value="1"></input>
