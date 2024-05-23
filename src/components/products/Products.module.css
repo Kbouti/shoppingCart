@@ -3,10 +3,12 @@
     border: 2px solid hotpink;
     gap: 20px;
     width: 100vw;
+    padding: 0 1rem 1rem;
 }
 
 .products {
     background-color: rgb(188, 188, 188);
+    
 }
 
 

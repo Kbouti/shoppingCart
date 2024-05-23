@@ -1,17 +1,34 @@
-.productCard{
-    display: flex;
-    border: 2px solid green;
-    max-width:20rem;
-    background-color: white;
+.productCard {
+  display: grid;
+  border: 2px solid green;
+  border-radius: 10px;
+  background-color: white;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "img price"
+    "img form"
+    "title title";
 }
 
 .productCard img {
-    height: 6rem;
-    max-width: 4rem;
-    /* Images are surely distorted now, but this is helpful for now to help figure out layout */
+  height: 6rem;
+  max-width: 4rem;
+  grid-area: img;
+  /* Images are surely distorted now, but this is helpful for now to help figure out layout */
 }
 
+.productCard form {
+  grid-area: form;
+}
+
+.title {
+  grid-area: title;
+}
+
+.price {
+  grid-area: price;
+}
 
 .productCard input {
-    width: 3rem;
+  width: 3rem;
 }
