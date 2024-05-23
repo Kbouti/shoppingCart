@@ -15,7 +15,7 @@ const Products = ({ apiData }) => {
         <h3>Products section</h3>
 <div className={styles.cardContainer}>
         {apiData.map((product) => {
-          return <Card key={product.title} product={product} />;
+          return <Card key={product.id} product={product} />;
         })}
         </div>
       </section>
