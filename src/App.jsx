@@ -15,11 +15,10 @@ import { useParams } from "react-router-dom";
 function App() {
   const { name } = useParams();
 
-  const [loading, setloading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState([]);
-
 
   // ***********************************************************************************************************************
   // We need to use PromiseAll so that we can set state once all of our requests have finished fetching.
@@ -28,31 +27,38 @@ function App() {
   // ***********************************************************************************************************************
 
   useEffect(() => {
-    const newArray = [];
-    for (let i = 1; i < 21; i++) {
-      const url = "https://fakestoreapi.com/products/" + i;
-      fetch(url)
-        .then((response) => response.json())
-        .then((response) => {
-          // console.log(response);
-          newArray.push(response);
-        })
-        .catch((error) => {
-          console.error(error);
-          setError(error);
-        });
+    // *************************************************************************************
+    // Read this to understand better how this works:
+    // https://www.geeksforgeeks.org/how-to-fetch-an-array-of-urls-with-promise-all/
+    // *************************************************************************************
+
+    async function fetchApis() {
+      const urlList = [];
+      for (let i = 1; i < 21; i++) {
+        const url = "https://fakestoreapi.com/products/" + i;
+        urlList.push(url);
+      }
+      console.log(`list of url's: ${urlList}`);
+      const fetchPromises = urlList.map((url) =>
+        fetch(url).then((response) => response.json())
+      );
+      Promise.all(fetchPromises).then((responses) => {
+        const responseData = responses.map((response) => response);
+        console.log(`promise complete? responseData: ${responseData}`);
+        setApiData(responseData);
+        setLoading(false);
+      });
     }
-    console.log(`loop complete. Length: ${newArray.length}`);
-    setApiData(newArray);
+    fetchApis();
   }, []);
 
   if (error) {
     return <Error />;
   }
 
-  // if (loading) {
-  //   return <Loading />;
-  // }
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
