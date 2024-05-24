@@ -1,7 +1,9 @@
-const Cart = () => {
+import styles from "./Cart.module.css";
+
+const Cart = ({ shoppingCart, setShoppingCart }) => {
   return (
     <>
-      <section>
+      <section className={styles.cart}>
         <h3>Shopping Cart</h3>
       </section>
     </>

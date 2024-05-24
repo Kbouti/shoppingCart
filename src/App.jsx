@@ -15,6 +15,8 @@ function App() {
   const [error, setError] = useState(null);
   const [apiData, setApiData] = useState([]);
 
+  const [shoppingCart, setShoppingCart] = useState([]);
+
   useEffect(() => {
     async function fetchApis() {
       const urlList = [];
@@ -66,9 +68,16 @@ function App() {
         </header>
         <hr />
         {name === "products" ? (
-          <Products apiData={apiData} />
+          <Products
+            apiData={apiData}
+            shoppingCart={shoppingCart}
+            setShoppingCart={setShoppingCart}
+          />
         ) : name === "shoppingCart" ? (
-          <Cart />
+          <Cart
+            shoppingCart={shoppingCart}
+            setShoppingCart={setShoppingCart}
+          />
         ) : (
           <Home />
         )}
