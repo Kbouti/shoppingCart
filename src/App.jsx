@@ -14,40 +14,33 @@ import { useParams } from "react-router-dom";
 
 function App() {
   const { name } = useParams();
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [dataReceived, setdataReceived] = useState(false);
   const [apiData, setApiData] = useState([]);
 
-  // ***********************************************************************************************************************
-  // We need to use PromiseAll so that we can set state once all of our requests have finished fetching.
-  // Then we'll need to set loading to false and data received to true.
-  // dataReceived may actually be redundant. We may only need loading and error
-  // ***********************************************************************************************************************
-
   useEffect(() => {
-    // *************************************************************************************
-    // Read this to understand better how this works:
-    // https://www.geeksforgeeks.org/how-to-fetch-an-array-of-urls-with-promise-all/
-    // *************************************************************************************
-
     async function fetchApis() {
       const urlList = [];
       for (let i = 1; i < 21; i++) {
         const url = "https://fakestoreapi.com/products/" + i;
         urlList.push(url);
       }
-      console.log(`list of url's: ${urlList}`);
       const fetchPromises = urlList.map((url) =>
         fetch(url).then((response) => response.json())
       );
-      Promise.all(fetchPromises).then((responses) => {
-        const responseData = responses.map((response) => response);
-        console.log(`promise complete? responseData: ${responseData}`);
-        setApiData(responseData);
-        setLoading(false);
-      });
+      // fetchPromises is now an array of fetch promises, i.e. a list of requests yet to be fired.
+      // Next we send all of those fetch requests, wait until they've all fulfilled, then use responses to set state.
+      // Helpful explanation at:
+      // https://www.geeksforgeeks.org/how-to-fetch-an-array-of-urls-with-promise-all/
+      Promise.all(fetchPromises)
+        .then((responses) => {
+          const responseData = responses.map((response) => response);
+          setApiData(responseData);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error(`Experienced an error fetching API data. `, error);
+        });
     }
     fetchApis();
   }, []);
