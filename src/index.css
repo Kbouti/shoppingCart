@@ -36,7 +36,16 @@ li {
 .indicator {
   position: absolute;
   bottom: 1rem;
-  left: 1.5rem
+  left: 1.5rem;
+  background-color: red;
+  color: white;
+  border-radius:50%;
+  height: 1rem;
+  width: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
 }
 
 .app {
