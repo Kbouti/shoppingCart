@@ -1,6 +1,11 @@
 import styles from "./Cart.module.css";
 
 const Cart = ({ shoppingCart, setShoppingCart }) => {
+
+// We're getting a bug where we can't delete the JOhn Hardy Women's legends bracelet.
+// What's up with that??
+
+
   const remove = (e) => {
     const productName = e.target.parentElement.firstChild.innerHTML;
     const newCart = [];
@@ -22,7 +27,7 @@ const Cart = ({ shoppingCart, setShoppingCart }) => {
   };
 
   const submitOrder = () => {
-    alert("Your order has been submitted! ");
+    alert(`Your order has been submitted! Order total: $${sumTotal()}`);
     setShoppingCart([]);
   };
 
