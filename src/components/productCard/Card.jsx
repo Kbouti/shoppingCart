@@ -1,10 +1,7 @@
 import styles from "./Card.module.css";
 
-
-
-// We need to make some kind of indication that the item has been updated to the cart. 
-// Perhaps an alert? 
-
+// We need to make some kind of indication that the item has been updated to the cart.
+// Perhaps an alert?
 
 const Card = ({ product, shoppingCart, setShoppingCart }) => {
   const addToCart = (e) => {
@@ -12,6 +9,10 @@ const Card = ({ product, shoppingCart, setShoppingCart }) => {
     console.log(`triggered addToCart for ${product.title} quantity: `);
     const quantity = e.target.children[0].value;
     console.log(quantity);
+    if (quantity < 1) {
+      alert(`Must enter a valid quantity`);
+      return;
+    }
     const targetProduct = product.title;
     let newArray = [];
     let priorQuantity = 0;
@@ -45,7 +46,7 @@ const Card = ({ product, shoppingCart, setShoppingCart }) => {
       <h2 className={styles.price}>${product.price}</h2>
       <img></img>
       <form onSubmit={addToCart}>
-        <input type="number" defaultValue="1"></input>
+        <input type="number" min={1} defaultValue={1}></input>
         <button type="submit">Add to cart</button>
       </form>
     </div>
