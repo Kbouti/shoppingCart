@@ -67,20 +67,22 @@ function App() {
           </nav>
         </header>
         <hr />
-        {name === "products" ? (
-          <Products
-            apiData={apiData}
-            shoppingCart={shoppingCart}
-            setShoppingCart={setShoppingCart}
-          />
-        ) : name === "shoppingCart" ? (
-          <Cart
-            shoppingCart={shoppingCart}
-            setShoppingCart={setShoppingCart}
-          />
-        ) : (
-          <Home />
-        )}
+        <div className="body">
+          {name === "products" ? (
+            <Products
+              apiData={apiData}
+              shoppingCart={shoppingCart}
+              setShoppingCart={setShoppingCart}
+            />
+          ) : name === "shoppingCart" ? (
+            <Cart
+              shoppingCart={shoppingCart}
+              setShoppingCart={setShoppingCart}
+            />
+          ) : (
+            <Home />
+          )}
+        </div>
       </div>
     </>
   );
