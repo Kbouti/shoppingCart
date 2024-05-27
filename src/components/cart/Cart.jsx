@@ -9,11 +9,16 @@ const Cart = ({ shoppingCart, setShoppingCart }) => {
 
   const sumTotal = () => {
     // Calculate total from shopping cart items
-
+    let sum = 0;
+    for (let i = 0;i < shoppingCart.length;i++){
+      sum += (Number(shoppingCart[i].product.price) * shoppingCart[i].quantity)
+    }
+    return sum;
   };
 
   const submitOrder = () => {
     alert("Your order has been submitted! ");
+    setShoppingCart([]);
 
     // We should also reset cart here
   };
