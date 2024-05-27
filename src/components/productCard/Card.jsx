@@ -1,5 +1,11 @@
 import styles from "./Card.module.css";
 
+
+
+// We need to make some kind of indication that the item has been updated to the cart. 
+// Perhaps an alert? 
+
+
 const Card = ({ product, shoppingCart, setShoppingCart }) => {
   const addToCart = (e) => {
     e.preventDefault();
@@ -29,6 +35,7 @@ const Card = ({ product, shoppingCart, setShoppingCart }) => {
     };
     newArray.push(newEntry);
     setShoppingCart(newArray);
+    e.target.children[0].value = 1;
   };
 
   return (
