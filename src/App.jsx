@@ -59,11 +59,23 @@ function App() {
         <header>
           <h1>KevDawg's webShop</h1>
           <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/products">Products</NavLink>
-            <NavLink to="/shoppingCart">
-              <span className="material-symbols-outlined">shopping_cart</span>
-            </NavLink>
+            <ul>
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/products">Products</NavLink>
+              </li>
+              <li>
+                <NavLink to="/shoppingCart">
+                  <span className="material-symbols-outlined">
+                    shopping_cart
+                  </span>
+                </NavLink>
+                {shoppingCart.length > 0 ? <div className="indicator">{shoppingCart.length}</div>: null }
+
+              </li>
+            </ul>
           </nav>
         </header>
         <hr />

@@ -18,19 +18,25 @@ li {
 }
 
 
-/* h1{
-  background-color: red;
-} */
 
-nav{
+nav ul {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   align-items:center;
   justify-content:flex-end
 }
-
 nav * {
   margin: .5rem;
+}
+
+li {
+  position: relative;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem
 }
 
 .app {

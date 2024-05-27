@@ -2,22 +2,20 @@ import styles from "./Cart.module.css";
 
 const Cart = ({ shoppingCart, setShoppingCart }) => {
   // We're getting a bug where we can't delete the JOhn Hardy Women's legends bracelet.
-  // What's up with that??
 
   const remove = (e) => {
-    let productName = e.target.parentElement.firstChild.innerHTML;
-    console.log(`product to remove: ${productName}`);
-    productName = productName.toString();
-    console.log(`product to remove: ${productName}`);
+    let targetProduct = e.target.parentElement.firstChild.innerHTML;
     const newCart = [];
     for (let i = 0; i < shoppingCart.length; i++) {
-      let thisProduct = toString(shoppingCart[i].product.title);
-      if (thisProduct !== productName) {
+      let thisProduct = shoppingCart[i].product.title;
+      if (thisProduct !== targetProduct) {
         console.log(`no match with ${shoppingCart[i].product.title}`);
 
         // Ok the problem is the & sign.
 
         newCart.push(shoppingCart[i]);
+      } else if (thisProduct === targetProduct){
+        console.log(`found a match, gotta delete`);
       }
     }
     setShoppingCart(newCart);
