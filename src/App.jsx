@@ -14,8 +14,12 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [apiData, setApiData] = useState([]);
-
   const [shoppingCart, setShoppingCart] = useState([]);
+
+  let cartQuantity = 0;
+  for (let i = 0; i < shoppingCart.length; i++) {
+    cartQuantity += shoppingCart[i].quantity;
+  }
 
   useEffect(() => {
     async function fetchApis() {
@@ -72,8 +76,9 @@ function App() {
                     shopping_cart
                   </span>
                 </NavLink>
-                {shoppingCart.length > 0 ? <div className="indicator">{shoppingCart.length}</div>: null }
-
+                {cartQuantity > 0 ? (
+                  <div className="indicator">{cartQuantity}</div>
+                ) : null}
               </li>
             </ul>
           </nav>
