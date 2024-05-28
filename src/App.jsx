@@ -64,13 +64,13 @@ function App() {
           <h1>KevDawg's webShop</h1>
           <nav>
             <ul>
-              <li>
+              <li className="navLi">
                 <NavLink className="navLink" to="/">Home</NavLink>
               </li>
-              <li>
+              <li className="navLi">
                 <NavLink className="navLink" to="/products">Products</NavLink>
               </li>
-              <li>
+              <li className="navLi">
                 <NavLink className="navLink" to="/shoppingCart">
                   <span className="material-symbols-outlined">
                     shopping_cart

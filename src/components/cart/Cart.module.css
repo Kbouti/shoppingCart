@@ -7,6 +7,16 @@
   --bodyFour: #ef476f;
 }
 
+.submitBtn {
+  background-color: var(--bodySecondary);
+  color: var(--bodyPrimary);
+}
+
+.removeBtn {
+  background-color: var(--bodyFour);
+  color: var(--headerSecondary);
+}
+
 .cart {
   background-color: rgb(188, 188, 188);
   display: flex;

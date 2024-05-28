@@ -35,14 +35,14 @@ const Cart = ({ shoppingCart, setShoppingCart }) => {
         <ul>
           <div className={styles.summary}>
             <p>Subtotal: ${sumTotal()}</p>
-            <button onClick={submitOrder}>Submit Order</button>
+            <button className={styles.submitBtn} onClick={submitOrder}>Submit Order</button>
           </div>
           {shoppingCart.map((item) => {
             return (
               <li key={item.product.id} keyprop={item.product.id}>
                 <p>{item.product.title}</p>
                 <p>quantity: {item.quantity}</p>
-                <button onClick={remove}>Remove</button>
+                <button className={styles.removeBtn} onClick={remove}>Remove</button>
               </li>
             );
           })}
