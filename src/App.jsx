@@ -65,13 +65,13 @@ function App() {
           <nav>
             <ul>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink className="navLink" to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink to="/products">Products</NavLink>
+                <NavLink className="navLink" to="/products">Products</NavLink>
               </li>
               <li>
-                <NavLink to="/shoppingCart">
+                <NavLink className="navLink" to="/shoppingCart">
                   <span className="material-symbols-outlined">
                     shopping_cart
                   </span>
