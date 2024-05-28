@@ -43,9 +43,9 @@ const Cart = ({ shoppingCart, setShoppingCart }) => {
           </div>
           {shoppingCart.map((item) => {
             return (
-              <li key={item.product.id} keyprop={item.product.id}>
+              <li className={styles.cartItem}key={item.product.id} keyprop={item.product.id}>
                 <p>{item.product.title}</p>
-                <p>quantity: {item.quantity}</p>
+                <p>    ${Number.parseFloat(item.product.price).toFixed(2)} x {item.quantity}</p>
                 <button className={styles.removeBtn} onClick={remove}>
                   Remove
                 </button>
