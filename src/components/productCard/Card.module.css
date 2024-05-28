@@ -24,7 +24,7 @@
   max-width: 4rem;
   grid-area: img;
   border-radius: 10px;
-    margin: auto;
+  margin: auto;
   /* Images are surely distorted now, but this is helpful for now to help figure out layout */
 }
 
@@ -42,18 +42,24 @@
   font-size: 2.5rem;
 }
 
+button {
+  border-radius: 10px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: var(--headerPrimary);
+  color: var(--headerSecondary);
+}
+
 .productCard form {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .productCard input {
   width: 3rem;
-
 }
 
 .productCard button {
-
 }

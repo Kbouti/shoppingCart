@@ -16,13 +16,7 @@
 }
 
 
-button {
-    background-color: var(--headerPrimary);
-    border-radius:10px;
-    padding: .8rem;
-    font-size: 1rem;
-    color: var(--headerSecondary);
-}
+
 
 .products {
   background-color: rgb(188, 188, 188);
