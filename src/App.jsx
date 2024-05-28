@@ -1,3 +1,7 @@
+// Deployed by Vercel At: 
+//  https://shopping-cart-beryl-two.vercel.app/shoppingCart
+
+
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -6,8 +10,6 @@ import Products from "./components/products/Products.jsx";
 import Cart from "./components/cart/Cart.jsx";
 import Loading from "./components/loading/Loading.jsx";
 import Error from "./components/Error.jsx";
-
-// import styles from "./index.css";
 
 function App() {
   const { name } = useParams();
