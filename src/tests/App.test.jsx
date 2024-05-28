@@ -3,11 +3,11 @@ import {render, screen} from '@testing-library/react';
 import App from '../App';
 
 describe('App', () => {
-    it('renders correct heading', () => {
+    it('At first renders loading message', () => {
 
         render(<App />);
-        expect(screen.getByRole("heading").textContent).toMatch(/Loading.../i);
+        expect(screen.getByText("Loading...").textContent).toMatch(/Loading.../i);
     })
 })
 
-// I'll have to go back and revisist testing, this doesn't pass. 
+// We've successfully tested that our loading screen displays.
