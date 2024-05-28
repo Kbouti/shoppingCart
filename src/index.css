@@ -30,6 +30,7 @@ h1 {
 .navLink {
   color: var(--headerSecondary);
   font-size: 1.2rem;
+  text-decoration: none;
 }
 
 .navLi:hover {

@@ -63,7 +63,7 @@ function App() {
     <>
       <div className="app">
         <header>
-          <h1>KevDawg's webShop</h1>
+          <h1>Kevin's webShop</h1>
           <nav>
             <ul>
               <li className="navLi">
