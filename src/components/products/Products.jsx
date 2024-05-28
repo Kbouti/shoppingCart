@@ -11,6 +11,7 @@ const Products = ({ apiData, shoppingCart, setShoppingCart }) => {
             return (
               <Card
                 key={product.id}
+                keyProp = {product.id}
                 product={product}
                 shoppingCart={shoppingCart}
                 setShoppingCart={setShoppingCart}

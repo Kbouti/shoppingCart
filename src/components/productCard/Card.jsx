@@ -40,7 +40,7 @@ const Card = ({ product, shoppingCart, setShoppingCart }) => {
   };
 
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productCard} keyprop={product.id}>
       <img src={product.image}></img>
       <h3 className={styles.title}>{product.title}</h3>
       <h2 className={styles.price}>${product.price}</h2>
