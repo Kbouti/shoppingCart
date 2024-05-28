@@ -43,7 +43,9 @@ const Card = ({ product, shoppingCart, setShoppingCart }) => {
     <div className={styles.productCard} keyprop={product.id}>
       <img src={product.image}></img>
       <h3 className={styles.title}>{product.title}</h3>
-      <h2 className={styles.price}>${product.price}</h2>
+      <h2 className={styles.price}>
+        ${Number.parseFloat(product.price).toFixed(2)}
+      </h2>
       <img></img>
       <form onSubmit={addToCart}>
         <input type="number" min={1} defaultValue={1}></input>

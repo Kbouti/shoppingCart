@@ -18,6 +18,8 @@ const Cart = ({ shoppingCart, setShoppingCart }) => {
     for (let i = 0; i < shoppingCart.length; i++) {
       sum += Number(shoppingCart[i].product.price) * shoppingCart[i].quantity;
     }
+
+    sum = Number.parseFloat(sum).toFixed(2);
     return sum;
   };
 
@@ -35,14 +37,18 @@ const Cart = ({ shoppingCart, setShoppingCart }) => {
         <ul>
           <div className={styles.summary}>
             <p>Subtotal: ${sumTotal()}</p>
-            <button className={styles.submitBtn} onClick={submitOrder}>Submit Order</button>
+            <button className={styles.submitBtn} onClick={submitOrder}>
+              Submit Order
+            </button>
           </div>
           {shoppingCart.map((item) => {
             return (
               <li key={item.product.id} keyprop={item.product.id}>
                 <p>{item.product.title}</p>
                 <p>quantity: {item.quantity}</p>
-                <button className={styles.removeBtn} onClick={remove}>Remove</button>
+                <button className={styles.removeBtn} onClick={remove}>
+                  Remove
+                </button>
               </li>
             );
           })}
