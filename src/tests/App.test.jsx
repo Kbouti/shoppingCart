@@ -8,6 +8,11 @@ describe('App', () => {
         render(<App />);
         expect(screen.getByText("Loading...").textContent).toMatch(/Loading.../i);
     })
-})
 
-// We've successfully tested that our loading screen displays.
+    it('Renders title in less than 5 seconds', () =>{
+        render(<App />);
+        setTimeout(()=>{
+            expect(screen.getByText("Kevin's webShop").textContent).toMatch(/Kevin's webShop/i);
+        }, 5000)
+    })
+})
