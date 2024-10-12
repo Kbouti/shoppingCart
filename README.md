@@ -1,9 +1,14 @@
-Shopping cart project for Odin. 
+Description:
+    This React application fetches products from a web API and displays product information in a reactive user interface. Users can add products to their shopping cart and see their updated subtotal. React components are organized into relevant modules and basic testing is performed to ensure functionality.
 
-https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart
+Technologies Used:
+    React,
+    Testing,
+    Web API,
+    HTML/CSS
 
-Final project of the React section, use everything I've learned to build a shopping cart. 
+Project Guidelines:
+    https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart
 
-
-This product is deployed by Vercel at: 
-https://shopping-cart-beryl-two.vercel.app/shoppingCart
+Deployed on Vercel:
+    https://shopping-cart-beryl-two.vercel.app/
