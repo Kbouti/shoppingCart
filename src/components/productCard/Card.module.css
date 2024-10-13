@@ -48,6 +48,7 @@ button {
   font-size: 1rem;
   background-color: var(--headerPrimary);
   color: var(--headerSecondary);
+  cursor: pointer;
 }
 
 .productCard form {
