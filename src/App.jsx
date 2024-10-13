@@ -1,6 +1,5 @@
-// Deployed by Vercel At: 
+// Deployed by Vercel At:
 //  https://shopping-cart-beryl-two.vercel.app/shoppingCart
-
 
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
@@ -67,10 +66,14 @@ function App() {
           <nav>
             <ul>
               <li className="navLi">
-                <NavLink className="navLink" to="/">Home</NavLink>
+                <NavLink className="navLink" to="/">
+                  Home
+                </NavLink>
               </li>
               <li className="navLi">
-                <NavLink className="navLink" to="/products">Products</NavLink>
+                <NavLink className="navLink" to="/products">
+                  Products
+                </NavLink>
               </li>
               <li className="navLi">
                 <NavLink className="navLink" to="/shoppingCart">

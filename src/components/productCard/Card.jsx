@@ -44,7 +44,7 @@ const Card = ({ product, shoppingCart, setShoppingCart }) => {
       <img></img>
       <form onSubmit={addToCart}>
         <input type="number" min={1} defaultValue={1}></input>
-        <button className={styles.resting} type="submit">Add to cart</button>
+        <button role="addToCart" className={styles.resting} type="submit">Add to cart</button>
       </form>
     </div>
   );
