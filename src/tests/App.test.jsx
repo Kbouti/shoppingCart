@@ -9,17 +9,28 @@ describe("App", () => {
     expect(screen.getByText("Loading...").textContent).toMatch(/Loading.../i);
   });
 
-  // ******************************************************************************************************************************************************************
-// So far the above is our only successful test. We need to somehow utilize componentDidMount or something similar rather than using a setTimeout. The set timeout somehow makes every test pass
-
   it("renders home message", () => {
     render(<Home />);
-    expect(screen.getByText("You're in the home section.").textContent).toMatch(/You're in the home section./i);
-  })
+    expect(screen.getByText("You're in the home section.").textContent).toMatch(
+      /You're in the home section./i
+    );
+  });
 
+// ******************************************************************************************************
+// Neither of these work but I think this is basically what we should be going for:
+
+  it("displays empty shopping cart when cart is empty", () => {
+    render(<App shoppingCart={[]} />);
+    // expect(screen.getByRole("cartIndicator")).not.toBeInTheDocument();
+    // or
+    expect(screen.getByRole("cartIndicator")).toBeNull();
+  });
+
+  it("displays shopping cart indicator when there is something in the cart", () => {
+    render(<App shoppingCart={[{ name: "peanuts", quantity: 1 }]} />);
+    expect(screen.getByRole("cartIndicator")).not.toBeInTheDocument();
+  });
 });
-
-
 
 describe("something truthy", () => {
   it("multiplies 2 x 2 = 4", () => {

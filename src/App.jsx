@@ -82,7 +82,7 @@ function App() {
                   </span>
                 </NavLink>
                 {cartQuantity > 0 ? (
-                  <div className="indicator">{cartQuantity}</div>
+                  <div role="cartIndicator" className="indicator">{cartQuantity}</div>
                 ) : null}
               </li>
             </ul>
