@@ -4,13 +4,11 @@ This React application fetches products from a web API and displays product info
 
 ### Technologies Used:
 
--React
-
--Testing
-
--Web API
-
--HTML/CSS
+* HTML/CSS
+* Javascript
+* Web API
+* React
+* Vitest testing
 
 ### Project Guidelines:
 
